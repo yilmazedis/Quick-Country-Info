@@ -16,7 +16,7 @@ class SearchCountryViewController: UIViewController {
     }()
     
     lazy var searchBar:UISearchBar = UISearchBar()
-    var countries: [CountryNames]?
+    var countries: [Countries]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,14 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailCountryViewController()
+
+        vc.country = countries?[indexPath.row]
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchCountryViewController: UISearchBarDelegate {
@@ -78,7 +86,7 @@ extension SearchCountryViewController: UISearchBarDelegate {
     }
     
     private func loadTableViewCells(with what: String) {
-        CountriesCaller.shared.fetchCountriesByName(with: Constants.baseUrl + Constants.fetchByName + what) { [weak self] data in
+        CountriesCaller.shared.fetchCountries(with: Constants.baseUrl + Constants.fetchByName + what) { [weak self] data in
             switch data {
             case.success(let results):
                 DispatchQueue.main.async {

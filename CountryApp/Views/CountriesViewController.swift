@@ -69,17 +69,11 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let image = UIImageView()
-        image.sd_setImage(with: URL(string: (countries[indexPath.row].flags.png))!,
-                                    placeholderImage: UIImage(systemName: "photo"))
-
-        cell.imageView?.image = image.image?.resizeImageWithHeight(newW: 60, newH: 60)
-        
-        let key = countries[indexPath.row].name.nativeName.keys.first!
+        let key = countries[indexPath.row].name.nativeName?.keys.first!
         let name = countries[indexPath.row].name.common
-        let common = countries[indexPath.row].name.nativeName[key]!["common"]!
+        let common = countries[indexPath.row].name.nativeName?[key!]??["common"]!
 
-        cell.textLabel?.text = name + " - " + common
+        cell.textLabel?.text = countries[indexPath.row].flag! + " - " + name + " - " + common!
         cell.accessoryType = .disclosureIndicator
         
         return cell

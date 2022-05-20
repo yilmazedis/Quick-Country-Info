@@ -8,19 +8,15 @@
 import Foundation
 
 struct Countries: Decodable {
-    let subregion: String
+    let subregion: String?
     let name: Names
-    let flags: Flags
-    let flag: String
-    let currencies: [String: [String: String]]
-    let languages: [String: String]
+    let flag: String?
+    let currencies: [String: [String: String]?]?
+    let languages: [String: String]?
+    let latlng: [Float]?
 }
 
 struct Names: Decodable {
-    let common: String
-    let nativeName: [String: [String: String]]
-}
-
-struct Flags: Decodable {
-    let png: String
+    var common: String
+    let nativeName: [String: [String: String]?]?
 }
