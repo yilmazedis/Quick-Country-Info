@@ -34,11 +34,6 @@ class CountriesViewController: UIViewController {
         print(region!)
         
         loadTableViewCells()
-        
-
-        
-       
-        
     }
     
     private func loadTableViewCells() {
@@ -75,7 +70,7 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let image = UIImageView()
-        image.sd_setImage(with: URL(string: countries[indexPath.row].flags.png)!,
+        image.sd_setImage(with: URL(string: (countries[indexPath.row].flags.png))!,
                                     placeholderImage: UIImage(systemName: "photo"))
 
         cell.imageView?.image = image.image?.resizeImageWithHeight(newW: 60, newH: 60)

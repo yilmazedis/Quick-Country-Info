@@ -16,7 +16,7 @@ class SearchCountryViewController: UIViewController {
     }()
     
     lazy var searchBar:UISearchBar = UISearchBar()
-    var countries: [Countries]?
+    var countries: [CountryNames]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,31 +47,38 @@ class SearchCountryViewController: UIViewController {
 extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return countries?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
         
+        guard let countries = countries else {
+            return UITableViewCell()
+        }
         
-        cell.textLabel?.text = "yilmaz"
+        cell.textLabel?.text = countries[indexPath.row].name.common
         cell.accessoryType = .disclosureIndicator
         
         return cell
     }
-    
-    
 }
 
 extension SearchCountryViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String)
     {
+        if textSearched.isEmpty {
+            countries = []
+            tableView.reloadData()
+            return
+        }
+        
         print(textSearched)
-        //loadTableViewCells(with: textSearched)
+        loadTableViewCells(with: textSearched)
     }
     
     private func loadTableViewCells(with what: String) {
-        CountriesCaller.shared.fetchCountries(with: Constants.baseUrl + Constants.fetchByName + what) { [weak self] data in
+        CountriesCaller.shared.fetchCountriesByName(with: Constants.baseUrl + Constants.fetchByName + what) { [weak self] data in
             switch data {
             case.success(let results):
                 DispatchQueue.main.async {

@@ -23,6 +23,7 @@
 		0109757A2836E9710080CBBB /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 010975792836E9710080CBBB /* SDWebImageMapKit */; };
 		010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975802836FC5A0080CBBB /* UIImage+Ext.swift */; };
 		010975842837077A0080CBBB /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 010975832837077A0080CBBB /* AlamofireImage */; };
+		010975862837EFDD0080CBBB /* CountryNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975852837EFDD0080CBBB /* CountryNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		010975722836D9BE0080CBBB /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		010975742836DE950080CBBB /* DetailCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCountryViewController.swift; sourceTree = "<group>"; };
 		010975802836FC5A0080CBBB /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		010975852837EFDD0080CBBB /* CountryNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				010975702836D4160080CBBB /* Countries.swift */,
+				010975852837EFDD0080CBBB /* CountryNames.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				010975752836DE950080CBBB /* DetailCountryViewController.swift in Sources */,
 				0109756E2836D3600080CBBB /* CountriesCaller.swift in Sources */,
 				010975552836CB620080CBBB /* ContinentsViewController.swift in Sources */,
+				010975862837EFDD0080CBBB /* CountryNames.swift in Sources */,
 				010975512836CB620080CBBB /* AppDelegate.swift in Sources */,
 				010975732836D9BE0080CBBB /* CountriesViewController.swift in Sources */,
 				010975532836CB620080CBBB /* SceneDelegate.swift in Sources */,
