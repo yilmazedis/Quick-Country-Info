@@ -9,21 +9,38 @@
 /* Begin PBXBuildFile section */
 		010975512836CB620080CBBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975502836CB620080CBBB /* AppDelegate.swift */; };
 		010975532836CB620080CBBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975522836CB620080CBBB /* SceneDelegate.swift */; };
-		010975552836CB620080CBBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975542836CB620080CBBB /* ViewController.swift */; };
-		010975582836CB620080CBBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 010975562836CB620080CBBB /* Main.storyboard */; };
+		010975552836CB620080CBBB /* ContinentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975542836CB620080CBBB /* ContinentsViewController.swift */; };
 		0109755A2836CB640080CBBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010975592836CB640080CBBB /* Assets.xcassets */; };
 		0109755D2836CB640080CBBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0109755B2836CB640080CBBB /* LaunchScreen.storyboard */; };
+		010975652836CD1E0080CBBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975642836CD1E0080CBBB /* Constants.swift */; };
+		010975672836CF9C0080CBBB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975662836CF9B0080CBBB /* MainTabBarViewController.swift */; };
+		0109756B2836D1CC0080CBBB /* SearchCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109756A2836D1CC0080CBBB /* SearchCountryViewController.swift */; };
+		0109756E2836D3600080CBBB /* CountriesCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109756D2836D3600080CBBB /* CountriesCaller.swift */; };
+		010975712836D4160080CBBB /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975702836D4160080CBBB /* Countries.swift */; };
+		010975732836D9BE0080CBBB /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975722836D9BE0080CBBB /* CountriesViewController.swift */; };
+		010975752836DE950080CBBB /* DetailCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975742836DE950080CBBB /* DetailCountryViewController.swift */; };
+		010975782836E9710080CBBB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 010975772836E9710080CBBB /* SDWebImage */; };
+		0109757A2836E9710080CBBB /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 010975792836E9710080CBBB /* SDWebImageMapKit */; };
+		010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975802836FC5A0080CBBB /* UIImage+Ext.swift */; };
+		010975842837077A0080CBBB /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 010975832837077A0080CBBB /* AlamofireImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0109754D2836CB620080CBBB /* CountryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		010975502836CB620080CBBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		010975522836CB620080CBBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		010975542836CB620080CBBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		010975572836CB620080CBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		010975542836CB620080CBBB /* ContinentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsViewController.swift; sourceTree = "<group>"; };
 		010975592836CB640080CBBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0109755C2836CB640080CBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0109755E2836CB640080CBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		010975642836CD1E0080CBBB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		010975662836CF9B0080CBBB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		0109756A2836D1CC0080CBBB /* SearchCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryViewController.swift; sourceTree = "<group>"; };
+		0109756D2836D3600080CBBB /* CountriesCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesCaller.swift; sourceTree = "<group>"; };
+		010975702836D4160080CBBB /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		010975722836D9BE0080CBBB /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		010975742836DE950080CBBB /* DetailCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCountryViewController.swift; sourceTree = "<group>"; };
+		010975802836FC5A0080CBBB /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0109757A2836E9710080CBBB /* SDWebImageMapKit in Frameworks */,
+				010975782836E9710080CBBB /* SDWebImage in Frameworks */,
+				010975842837077A0080CBBB /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +76,62 @@
 		0109754F2836CB620080CBBB /* CountryApp */ = {
 			isa = PBXGroup;
 			children = (
+				0109757F2836FC300080CBBB /* Extensions */,
+				0109756C2836D3350080CBBB /* Managers */,
+				0109756F2836D3A80080CBBB /* Models */,
+				010975692836D1AA0080CBBB /* Utilities */,
+				010975682836D1810080CBBB /* Views */,
 				010975502836CB620080CBBB /* AppDelegate.swift */,
 				010975522836CB620080CBBB /* SceneDelegate.swift */,
-				010975542836CB620080CBBB /* ViewController.swift */,
-				010975562836CB620080CBBB /* Main.storyboard */,
 				010975592836CB640080CBBB /* Assets.xcassets */,
 				0109755B2836CB640080CBBB /* LaunchScreen.storyboard */,
 				0109755E2836CB640080CBBB /* Info.plist */,
 			);
 			path = CountryApp;
+			sourceTree = "<group>";
+		};
+		010975682836D1810080CBBB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				010975742836DE950080CBBB /* DetailCountryViewController.swift */,
+				010975722836D9BE0080CBBB /* CountriesViewController.swift */,
+				010975542836CB620080CBBB /* ContinentsViewController.swift */,
+				0109756A2836D1CC0080CBBB /* SearchCountryViewController.swift */,
+				010975662836CF9B0080CBBB /* MainTabBarViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		010975692836D1AA0080CBBB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				010975642836CD1E0080CBBB /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0109756C2836D3350080CBBB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0109756D2836D3600080CBBB /* CountriesCaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0109756F2836D3A80080CBBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				010975702836D4160080CBBB /* Countries.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0109757F2836FC300080CBBB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				010975802836FC5A0080CBBB /* UIImage+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +150,11 @@
 			dependencies = (
 			);
 			name = CountryApp;
+			packageProductDependencies = (
+				010975772836E9710080CBBB /* SDWebImage */,
+				010975792836E9710080CBBB /* SDWebImageMapKit */,
+				010975832837077A0080CBBB /* AlamofireImage */,
+			);
 			productName = CountryApp;
 			productReference = 0109754D2836CB620080CBBB /* CountryApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +183,10 @@
 				Base,
 			);
 			mainGroup = 010975442836CB620080CBBB;
+			packageReferences = (
+				010975762836E9710080CBBB /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				010975822837077A0080CBBB /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+			);
 			productRefGroup = 0109754E2836CB620080CBBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +203,6 @@
 			files = (
 				0109755D2836CB640080CBBB /* LaunchScreen.storyboard in Resources */,
 				0109755A2836CB640080CBBB /* Assets.xcassets in Resources */,
-				010975582836CB620080CBBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +213,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010975552836CB620080CBBB /* ViewController.swift in Sources */,
+				010975712836D4160080CBBB /* Countries.swift in Sources */,
+				0109756B2836D1CC0080CBBB /* SearchCountryViewController.swift in Sources */,
+				010975752836DE950080CBBB /* DetailCountryViewController.swift in Sources */,
+				0109756E2836D3600080CBBB /* CountriesCaller.swift in Sources */,
+				010975552836CB620080CBBB /* ContinentsViewController.swift in Sources */,
 				010975512836CB620080CBBB /* AppDelegate.swift in Sources */,
+				010975732836D9BE0080CBBB /* CountriesViewController.swift in Sources */,
 				010975532836CB620080CBBB /* SceneDelegate.swift in Sources */,
+				010975672836CF9C0080CBBB /* MainTabBarViewController.swift in Sources */,
+				010975652836CD1E0080CBBB /* Constants.swift in Sources */,
+				010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		010975562836CB620080CBBB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				010975572836CB620080CBBB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0109755B2836CB640080CBBB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +366,6 @@
 				INFOPLIST_FILE = CountryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +392,6 @@
 				INFOPLIST_FILE = CountryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -356,6 +429,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		010975762836E9710080CBBB /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		010975822837077A0080CBBB /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		010975772836E9710080CBBB /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 010975762836E9710080CBBB /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		010975792836E9710080CBBB /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 010975762836E9710080CBBB /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		010975832837077A0080CBBB /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 010975822837077A0080CBBB /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 010975452836CB620080CBBB /* Project object */;
 }
