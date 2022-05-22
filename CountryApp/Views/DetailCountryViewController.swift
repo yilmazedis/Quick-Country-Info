@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import WebKit
 
 class DetailCountryViewController: UIViewController {
     
@@ -98,7 +99,6 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
         } else if indexPath.section == 1 {
             cellHight = 40
             
-            
             let name = country.currencies[indexPath.row].name
             let symbol = country.currencies[indexPath.row].symbol
             
@@ -109,13 +109,23 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
             
         } else {
             cellHight = 400
-            let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
-            cell.contentView.addSubview(mapView)
+//            let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
+//            cell.contentView.addSubview(mapView)
+//
+//
+//            let orgLocation = CLLocation(latitude: CLLocationDegrees(country.location.lat),
+//                                         longitude: CLLocationDegrees(country.location.lng))
+//            showLocation(mapView, location: orgLocation)
+//
             
+            let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
+                    
+            let myURL = URL(string: "https://goo.gl/maps/tiQ9Baekb1jQtDSD9")
+            let myRequest = URLRequest(url: myURL!)
+            webView.load(myRequest)
             
-            let orgLocation = CLLocation(latitude: CLLocationDegrees(country.latlng[0]),
-                                         longitude: CLLocationDegrees(country.latlng[1]))
-            showLocation(mapView, location: orgLocation)
+            cell.contentView.addSubview(webView)
+                        
         }
         
         return cell

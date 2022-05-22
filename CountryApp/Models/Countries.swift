@@ -9,6 +9,7 @@ import Foundation
 import SwiftyJSON
 
 typealias CurrencyTuple = (name: String, symbol: String)
+typealias LocationTuple = (lat: Float, lng: Float)
 
 struct Country {
     let name: String
@@ -17,29 +18,20 @@ struct Country {
     let flag: String
     let currencies: [CurrencyTuple]
     let languages: [String]
-    let latlng: [Float]
+    let location: LocationTuple
     
     init(with data: JSON) {
         self.name = data["name"]["common"].stringValue
-        
         self.nativeName = Country.setNativeName(with: data)
-        
         self.subregion = data["subregion"].stringValue
         self.flag = data["flag"].stringValue
-        
         self.currencies = Country.setCurrency(with: data)
-        
         self.languages = Country.setLanguages(with: data)
-        
-        self.latlng = Country.setlatAndlng(with: data)
+        self.location = Country.setlatAndlng(with: data)
     }
     
     private static func setNativeName(with data: JSON) -> String {
-        guard let native = data["name"]["nativeName"].dictionaryObject else {
-            return ""
-        }
-        
-        guard let key = native.keys.first else {
+        guard let key = data["name"]["nativeName"].dictionaryObject?.keys.first else {
             return ""
         }
         
@@ -79,9 +71,9 @@ struct Country {
         return languages
     }
     
-    private static func setlatAndlng(with data: JSON) -> [Float] {
+    private static func setlatAndlng(with data: JSON) -> LocationTuple {
         let lat = data["latlng"].arrayValue[0].floatValue
         let lng = data["latlng"].arrayValue[1].floatValue
-        return [lat, lng]
+        return LocationTuple(lat: lat, lng: lng)
     }
 }

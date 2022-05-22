@@ -43,46 +43,10 @@ class CountriesCaller {
                 }
                 completion(.success(decodedCountry))
                 
-                //print("JSON: \(json)")
             case .failure(let error):
                 print(error)
                 completion(.failure(ApiFail.failData))
             }
         }
     }
-    
-//    func fetchCountries(with urlStr: String, completion: @escaping (Result<[Country], Error>) -> Void) {
-//
-//        guard let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-//            return
-//        }
-//
-//        guard let url = URL(string: urlStr) else {
-//            return
-//        }
-//
-//        task?.cancel()
-//
-//        task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-//
-//            guard let data = data else {
-//                completion(.failure(ApiFail.failData1))
-//                return
-//            }
-//
-//            guard error == nil else {
-//                completion(.failure(ApiFail.failData2))
-//                return
-//            }
-//
-//            do {
-//                let result = try JSONDecoder().decode([Country].self, from: data)
-//                completion(.success(result))
-//            } catch {
-//                completion(.failure(ApiFail.failData))
-//            }
-//        }
-//
-//        task?.resume()
-//    }
 }

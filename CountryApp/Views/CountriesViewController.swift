@@ -68,6 +68,12 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let countries = countries else {
             return UITableViewCell()
         }
+        
+//        let image = UIImageView()
+//        image.sd_setImage(with: URL(string: "https://flagcdn.com/w80/za.jpg")!,
+//                          placeholderImage: UIImage(systemName: "photo"))
+//
+//        cell.imageView?.image = image.image?.resizeImageWithHeight(newW: 60, newH: 60)
 
         let name = countries[indexPath.row].name
         let nativeName = countries[indexPath.row].nativeName

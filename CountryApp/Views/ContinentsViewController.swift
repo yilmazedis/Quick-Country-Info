@@ -57,12 +57,9 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let id = MainScreenViewModel.shared.getUpcomingMovie(at: indexPath.row).id
         let vc = CountriesViewController()
         vc.region = continents[indexPath.row]
-
         navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
 
