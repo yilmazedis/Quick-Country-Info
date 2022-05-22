@@ -18,7 +18,7 @@ class CountriesViewController: UIViewController {
     
     var region: String?
     
-    var countries: [Countries]?
+    var countries: [Country]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +68,11 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let countries = countries else {
             return UITableViewCell()
         }
-        
-        let key = countries[indexPath.row].name.nativeName?.keys.first!
-        let name = countries[indexPath.row].name.common
-        let common = countries[indexPath.row].name.nativeName?[key!]??["common"]!
 
-        cell.textLabel?.text = countries[indexPath.row].flag! + " - " + name + " - " + common!
+        let name = countries[indexPath.row].name
+        let nativeName = countries[indexPath.row].nativeName
+        let flag = countries[indexPath.row].flag
+        cell.textLabel?.text = flag + " - " + name + " - " + nativeName
         cell.accessoryType = .disclosureIndicator
         
         return cell

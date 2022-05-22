@@ -22,7 +22,8 @@
 		010975782836E9710080CBBB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 010975772836E9710080CBBB /* SDWebImage */; };
 		0109757A2836E9710080CBBB /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 010975792836E9710080CBBB /* SDWebImageMapKit */; };
 		010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975802836FC5A0080CBBB /* UIImage+Ext.swift */; };
-		010975842837077A0080CBBB /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 010975832837077A0080CBBB /* AlamofireImage */; };
+		01097589283973A30080CBBB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 01097588283973A30080CBBB /* Alamofire */; };
+		0109758C2839747F0080CBBB /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0109758B2839747F0080CBBB /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,9 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01097589283973A30080CBBB /* Alamofire in Frameworks */,
 				0109757A2836E9710080CBBB /* SDWebImageMapKit in Frameworks */,
+				0109758C2839747F0080CBBB /* SwiftyJSON in Frameworks */,
 				010975782836E9710080CBBB /* SDWebImage in Frameworks */,
-				010975842837077A0080CBBB /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +155,8 @@
 			packageProductDependencies = (
 				010975772836E9710080CBBB /* SDWebImage */,
 				010975792836E9710080CBBB /* SDWebImageMapKit */,
-				010975832837077A0080CBBB /* AlamofireImage */,
+				01097588283973A30080CBBB /* Alamofire */,
+				0109758B2839747F0080CBBB /* SwiftyJSON */,
 			);
 			productName = CountryApp;
 			productReference = 0109754D2836CB620080CBBB /* CountryApp.app */;
@@ -185,7 +188,8 @@
 			mainGroup = 010975442836CB620080CBBB;
 			packageReferences = (
 				010975762836E9710080CBBB /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				010975822837077A0080CBBB /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				01097587283973A30080CBBB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0109758A2839747F0080CBBB /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 0109754E2836CB620080CBBB /* Products */;
 			projectDirPath = "";
@@ -439,12 +443,20 @@
 				kind = branch;
 			};
 		};
-		010975822837077A0080CBBB /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+		01097587283973A30080CBBB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		0109758A2839747F0080CBBB /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -460,10 +472,15 @@
 			package = 010975762836E9710080CBBB /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
-		010975832837077A0080CBBB /* AlamofireImage */ = {
+		01097588283973A30080CBBB /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 010975822837077A0080CBBB /* XCRemoteSwiftPackageReference "AlamofireImage" */;
-			productName = AlamofireImage;
+			package = 01097587283973A30080CBBB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0109758B2839747F0080CBBB /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0109758A2839747F0080CBBB /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

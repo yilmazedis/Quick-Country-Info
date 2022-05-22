@@ -16,7 +16,7 @@ class SearchCountryViewController: UIViewController {
     }()
     
     lazy var searchBar:UISearchBar = UISearchBar()
-    var countries: [Countries]?
+    var countries: [Country]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
             return UITableViewCell()
         }
         
-        cell.textLabel?.text = countries[indexPath.row].name.common
+        cell.textLabel?.text = countries[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         
         return cell

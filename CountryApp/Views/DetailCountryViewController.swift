@@ -16,7 +16,7 @@ class DetailCountryViewController: UIViewController {
         return table
     }()
 
-    var country: Countries?
+    var country: Country?
     let sectionTitles = ["Flag", "Currency Unit", "Languages", "Map"]
     
     private var cellHight: CGFloat = 40
@@ -26,7 +26,7 @@ class DetailCountryViewController: UIViewController {
         view.backgroundColor = .systemBlue
         // Do any additional setup after loading the view.
         
-        title = country?.name.common
+        title = country?.nativeName
         
         view.addSubview(tableView)
         tableView.delegate = self
@@ -70,7 +70,9 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 1
+            guard let currencies = country?.currencies else { return 0 }
+            
+            return Array(currencies).count
         } else if section == 2 {
             
             guard let languages = country?.languages else { return 0 }
@@ -96,15 +98,14 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
         } else if indexPath.section == 1 {
             cellHight = 40
             
-            let key = country.currencies?.keys.first!
             
-            let name = country.currencies?[key!]??["name"]
-            let symbol = country.currencies?[key!]??["symbol"]
+            let name = country.currencies[indexPath.row].name
+            let symbol = country.currencies[indexPath.row].symbol
             
-            cell.textLabel?.text = symbol! + " " + name!
+            cell.textLabel?.text = symbol + " " + name
         } else if indexPath.section == 2 {
             cellHight = 40
-            cell.textLabel?.text = Array(country.languages!)[indexPath.row].value
+            cell.textLabel?.text = country.languages[indexPath.row]
             
         } else {
             cellHight = 400
@@ -112,8 +113,8 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
             cell.contentView.addSubview(mapView)
             
             
-            let orgLocation = CLLocation(latitude: CLLocationDegrees(country.latlng![0]),
-                                         longitude: CLLocationDegrees(country.latlng![1]))
+            let orgLocation = CLLocation(latitude: CLLocationDegrees(country.latlng[0]),
+                                         longitude: CLLocationDegrees(country.latlng[1]))
             showLocation(mapView, location: orgLocation)
         }
         
