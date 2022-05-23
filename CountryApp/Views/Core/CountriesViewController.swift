@@ -17,8 +17,6 @@ class CountriesViewController: UIViewController {
     }()
     
     var region: String?
-    
-    var countries: [Country]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +35,9 @@ class CountriesViewController: UIViewController {
     }
     
     private func loadTableViewCells() {
-        CountriesCaller.shared.fetchCountries(with: Constants.baseUrl + Constants.fetchByRegion + region!) { [weak self] data in
-            switch data {
-            case.success(let results):
-                DispatchQueue.main.async {
-                    self?.countries = results
-                    self?.tableView.reloadData()
-                }
-            case.failure(let error):
-                print(error)
+        CountriesViewModel.shared.fetchCountries(with: Constants.baseUrl + Constants.fetchByRegion + region!) { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
             }
         }
     }
@@ -59,25 +51,21 @@ class CountriesViewController: UIViewController {
 extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries?.count ?? 0
+        return CountriesViewModel.shared.getCountryCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
-        
-        guard let countries = countries else {
-            return UITableViewCell()
-        }
         
 //        let image = UIImageView()
 //        image.sd_setImage(with: URL(string: "https://flagcdn.com/w80/za.jpg")!,
 //                          placeholderImage: UIImage(systemName: "photo"))
 //
 //        cell.imageView?.image = image.image?.resizeImageWithHeight(newW: 60, newH: 60)
-
-        let name = countries[indexPath.row].name
-        let nativeName = countries[indexPath.row].nativeName
-        let flag = countries[indexPath.row].flag
+        let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
+        let name = country.name
+        let nativeName = country.nativeName
+        let flag = country.flag
         cell.textLabel?.text = flag + " - " + name + " - " + nativeName
         cell.accessoryType = .disclosureIndicator
         
@@ -90,8 +78,9 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailCountryViewController()
-        vc.country = countries?[indexPath.row]
-
+        let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
+        DetailCountryViewModel.shared.setCountry(with: country)
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

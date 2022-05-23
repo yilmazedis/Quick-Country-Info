@@ -20,6 +20,17 @@ struct Country {
     let languages: [String]
     let location: LocationTuple
     
+    // Default init
+    init() {
+        self.name = ""
+        self.nativeName = ""
+        self.subregion = ""
+        self.flag = ""
+        self.currencies = [CurrencyTuple(name: "", symbol: "")]
+        self.languages = [""]
+        self.location = LocationTuple(lat: 0.0, lng: 0.0)
+    }
+    
     init(with data: JSON) {
         self.name = data["name"]["common"].stringValue
         self.nativeName = Country.setNativeName(with: data)

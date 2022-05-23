@@ -16,9 +16,6 @@ class DetailCountryViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cell)
         return table
     }()
-
-    var country: Country?
-    let sectionTitles = ["Flag", "Currency Unit", "Languages", "Map"]
     
     private var cellHight: CGFloat = 40
     
@@ -27,7 +24,7 @@ class DetailCountryViewController: UIViewController {
         view.backgroundColor = .systemBlue
         // Do any additional setup after loading the view.
         
-        title = country?.nativeName
+        title = DetailCountryViewModel.shared.getCountry().name
         
         view.addSubview(tableView)
         tableView.delegate = self
@@ -57,11 +54,11 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        return DetailCountryViewModel.shared.getSectionCount()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
+        return DetailCountryViewModel.shared.getSection(at: section)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,14 +68,12 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
         if section == 0 {
             return 1
         } else if section == 1 {
-            guard let currencies = country?.currencies else { return 0 }
             
-            return Array(currencies).count
+            return DetailCountryViewModel.shared.getCountry().currencies.count
         } else if section == 2 {
             
-            guard let languages = country?.languages else { return 0 }
             
-            return Array(languages).count
+            return DetailCountryViewModel.shared.getCountry().languages.count
         } else {
             return 1
         }
@@ -87,9 +82,7 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
         
-        guard let country = country else {
-            return UITableViewCell()
-        }
+        let country = DetailCountryViewModel.shared.getCountry()
         
         if indexPath.section == 0 {
             cellHight = 80
@@ -109,23 +102,23 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
             
         } else {
             cellHight = 400
-//            let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
-//            cell.contentView.addSubview(mapView)
-//
-//
-//            let orgLocation = CLLocation(latitude: CLLocationDegrees(country.location.lat),
-//                                         longitude: CLLocationDegrees(country.location.lng))
-//            showLocation(mapView, location: orgLocation)
-//
+            let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
+            cell.contentView.addSubview(mapView)
+
+
+            let orgLocation = CLLocation(latitude: CLLocationDegrees(country.location.lat),
+                                         longitude: CLLocationDegrees(country.location.lng))
+            showLocation(mapView, location: orgLocation)
+
             
-            let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
-                    
-            let myURL = URL(string: "https://goo.gl/maps/tiQ9Baekb1jQtDSD9")
-            let myRequest = URLRequest(url: myURL!)
-            webView.load(myRequest)
-            
-            cell.contentView.addSubview(webView)
-                        
+//            let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
+//
+//            let myURL = URL(string: "https://goo.gl/maps/tiQ9Baekb1jQtDSD9")
+//            let myRequest = URLRequest(url: myURL!)
+//            webView.load(myRequest)
+//
+//            cell.contentView.addSubview(webView)
+//
         }
         
         return cell

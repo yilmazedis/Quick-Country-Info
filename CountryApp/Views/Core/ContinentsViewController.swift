@@ -9,13 +9,6 @@ import UIKit
 
 class ContinentsViewController: UIViewController {
     
-    var continents = [ "Asia",
-                       "Europe",
-                       "Africa",
-                       "North America",
-                       "South America",
-                       "Oceania" ]
-    
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cell)
@@ -43,22 +36,20 @@ class ContinentsViewController: UIViewController {
 extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return continents.count
+        return ContinentsViewModel.shared.getContinentCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
         
-        
-        cell.textLabel?.text = continents[indexPath.row]
+        cell.textLabel?.text = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         cell.accessoryType = .disclosureIndicator
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = CountriesViewController()
-        vc.region = continents[indexPath.row]
+        vc.region = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
