@@ -62,19 +62,14 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print(section)
-        
-        if section == 0 {
+        switch section {
+        case 0:
             return 1
-        } else if section == 1 {
-            
+        case 1:
             return DetailCountryViewModel.shared.getCountry().currencies.count
-        } else if section == 2 {
-            
-            
+        case 2:
             return DetailCountryViewModel.shared.getCountry().languages.count
-        } else {
+        default:
             return 1
         }
     }
@@ -84,41 +79,30 @@ extension DetailCountryViewController: UITableViewDelegate, UITableViewDataSourc
         
         let country = DetailCountryViewModel.shared.getCountry()
         
-        if indexPath.section == 0 {
+        switch indexPath.section {
+        case 0:
             cellHight = 80
             cell.textLabel?.text = country.flag
             
             cell.textLabel?.font = UIFont.systemFont(ofSize: 100)
-        } else if indexPath.section == 1 {
+        case 1:
             cellHight = 40
             
             let name = country.currencies[indexPath.row].name
             let symbol = country.currencies[indexPath.row].symbol
             
             cell.textLabel?.text = symbol + " " + name
-        } else if indexPath.section == 2 {
+        case 2:
             cellHight = 40
             cell.textLabel?.text = country.languages[indexPath.row]
-            
-        } else {
-            cellHight = 400
+        default:
+            cellHight = 300
             let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
             cell.contentView.addSubview(mapView)
-
 
             let orgLocation = CLLocation(latitude: CLLocationDegrees(country.location.lat),
                                          longitude: CLLocationDegrees(country.location.lng))
             showLocation(mapView, location: orgLocation)
-
-            
-//            let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
-//
-//            let myURL = URL(string: "https://goo.gl/maps/tiQ9Baekb1jQtDSD9")
-//            let myRequest = URLRequest(url: myURL!)
-//            webView.load(myRequest)
-//
-//            cell.contentView.addSubview(webView)
-//
         }
         
         return cell

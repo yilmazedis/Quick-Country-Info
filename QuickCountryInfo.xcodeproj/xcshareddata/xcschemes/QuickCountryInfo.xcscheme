@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0109754C2836CB620080CBBB"
                BuildableName = "CountryApp.app"
-               BlueprintName = "CountryApp"
-               ReferencedContainer = "container:CountryApp.xcodeproj">
+               BlueprintName = "QuickCountryInfo"
+               ReferencedContainer = "container:QuickCountryInfo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0109754C2836CB620080CBBB"
             BuildableName = "CountryApp.app"
-            BlueprintName = "CountryApp"
-            ReferencedContainer = "container:CountryApp.xcodeproj">
+            BlueprintName = "QuickCountryInfo"
+            ReferencedContainer = "container:QuickCountryInfo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0109754C2836CB620080CBBB"
             BuildableName = "CountryApp.app"
-            BlueprintName = "CountryApp"
-            ReferencedContainer = "container:CountryApp.xcodeproj">
+            BlueprintName = "QuickCountryInfo"
+            ReferencedContainer = "container:QuickCountryInfo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
