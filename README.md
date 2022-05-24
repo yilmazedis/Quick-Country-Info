@@ -17,6 +17,6 @@
 
 - Finally, I added three demo to demonstrate my work. ->
 
-  Feature-Ver-3 & Final Demo
-|:-------------------------:|
+ Final Demo|
+:-------------------------:|
 ![](DemoGifs/Final-Demo.gif)
