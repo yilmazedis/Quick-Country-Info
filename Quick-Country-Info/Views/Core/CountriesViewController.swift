@@ -8,11 +8,11 @@
 import UIKit
 import SDWebImage
 
-class CountriesViewController: UIViewController {
+final class CountriesViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cell)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
         return table
     }()
     
@@ -22,20 +22,17 @@ class CountriesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         // Do any additional setup after loading the view.
-        
-        title = "Countries"
-        
+                
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        
-        print(region!)
-        
+                
         loadTableViewCells()
+        configureNavigationBar(with: "Countries")
     }
     
     private func loadTableViewCells() {
-        CountriesViewModel.shared.fetchCountries(with: Constants.baseUrl + Constants.fetchByRegion + region!) { [weak self] in
+        CountriesViewModel.shared.fetchCountries(with: K.baseUrl + K.fetchByRegion + region!) { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -55,7 +52,7 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
 //        let image = UIImageView()
 //        image.sd_setImage(with: URL(string: "https://flagcdn.com/w80/za.jpg")!,
@@ -77,9 +74,9 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailCountryViewController()
+        let vc = DetailViewController()
         let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
-        DetailCountryViewModel.shared.setCountry(with: country)
+        DetailViewModel.shared.setCountry(with: country)
         
         navigationController?.pushViewController(vc, animated: true)
     }

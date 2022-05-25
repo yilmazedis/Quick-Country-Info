@@ -5,11 +5,9 @@
 //  Created by yilmaz on 19.05.2022.
 //
 
-import Foundation
-
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,11 +7,11 @@
 
 import UIKit
 
-class SearchCountryViewController: UIViewController {
+final class SearchCountryViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cell)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
         return table
     }()
     
@@ -33,6 +33,8 @@ class SearchCountryViewController: UIViewController {
         searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
         tableView.tableHeaderView = searchBar
+        
+        configureNavigationBar(with: "Search Country")
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,7 +50,7 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
         cell.textLabel?.text =  SearchCountryViewModel.shared.getCountry(at: indexPath.row).name
         cell.accessoryType = .disclosureIndicator
@@ -57,9 +59,9 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailCountryViewController()
+        let vc = DetailViewController()
         let country = SearchCountryViewModel.shared.getCountry(at: indexPath.row)
-        DetailCountryViewModel.shared.setCountry(with: country)
+        DetailViewModel.shared.setCountry(with: country)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -78,7 +80,7 @@ extension SearchCountryViewController: UISearchBarDelegate {
     }
     
     private func loadTableViewCells(with what: String) {
-        SearchCountryViewModel.shared.fetchCountries(with: Constants.baseUrl + Constants.fetchByName + what) { [weak self] in
+        SearchCountryViewModel.shared.fetchCountries(with: K.baseUrl + K.fetchByName + what) { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
