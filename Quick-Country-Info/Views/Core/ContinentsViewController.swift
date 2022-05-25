@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ContinentsViewController: UIViewController {
+final class ContinentsViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cell)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
         return table
     }()
 
@@ -19,10 +19,12 @@ class ContinentsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         // Do any additional setup after loading the view.
-                
+        
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        configureNavigationBar(with: "Continents")
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,7 +40,7 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
         cell.textLabel?.text = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         cell.accessoryType = .disclosureIndicator

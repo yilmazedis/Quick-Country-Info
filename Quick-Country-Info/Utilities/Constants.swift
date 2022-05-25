@@ -5,9 +5,7 @@
 //  Created by yilmaz on 19.05.2022.
 //
 
-import Foundation
-
-struct Constants {
+struct K {
     static let cell = "Cell"
     
     static let baseUrl = "https://restcountries.com/v3.1/"
