@@ -15,7 +15,7 @@
 - I try to avoid retain cycle, and cared variables reference count.
 - I try to avoid massive ViewController. So, I devided function with related extensions.
 
-- Finally, I added three demo to demonstrate my work. ->
+- Finally, I added a demo to demonstrate my work. ->
 
  Final Demo|
 :-------------------------:|
