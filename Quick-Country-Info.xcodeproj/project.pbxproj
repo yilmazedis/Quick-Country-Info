@@ -29,6 +29,7 @@
 		011B1F01283D04F2009F570F /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 011B1F00283D04F2009F570F /* SDWebImageMapKit */; };
 		011B1F03283EEC41009F570F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F02283EEC41009F570F /* MKMapView+Ext.swift */; };
 		011B1F05283EF6DD009F570F /* UITableViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */; };
+		011B1F0A283FE3B2009F570F /* CellSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F09283FE3B2009F570F /* CellSections.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		011B1EF4283BEF17009F570F /* SearchCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryViewModel.swift; sourceTree = "<group>"; };
 		011B1F02283EEC41009F570F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Ext.swift"; sourceTree = "<group>"; };
+		011B1F09283FE3B2009F570F /* CellSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSections.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +90,6 @@
 		0109754F2836CB620080CBBB /* Quick-Country-Info */ = {
 			isa = PBXGroup;
 			children = (
-				0109757F2836FC300080CBBB /* Extensions */,
 				010975692836D1AA0080CBBB /* Utilities */,
 				0109756F2836D3A80080CBBB /* Models */,
 				010975682836D1810080CBBB /* Views */,
@@ -114,6 +115,8 @@
 		010975692836D1AA0080CBBB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0109757F2836FC300080CBBB /* Extensions */,
+				011B1F08283FE3A3009F570F /* Enumarations */,
 				010975642836CD1E0080CBBB /* Constants.swift */,
 			);
 			path = Utilities;
@@ -157,6 +160,14 @@
 				0109756A2836D1CC0080CBBB /* SearchCountryViewController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		011B1F08283FE3A3009F570F /* Enumarations */ = {
+			isa = PBXGroup;
+			children = (
+				011B1F09283FE3B2009F570F /* CellSections.swift */,
+			);
+			path = Enumarations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +263,7 @@
 				010975652836CD1E0080CBBB /* Constants.swift in Sources */,
 				011B1EF1283BECE8009F570F /* CountriesViewModel.swift in Sources */,
 				011B1F05283EF6DD009F570F /* UITableViewController+Ext.swift in Sources */,
+				011B1F0A283FE3B2009F570F /* CellSections.swift in Sources */,
 				010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */,
 				011B1F03283EEC41009F570F /* MKMapView+Ext.swift in Sources */,
 				011B1EF5283BEF17009F570F /* SearchCountryViewModel.swift in Sources */,

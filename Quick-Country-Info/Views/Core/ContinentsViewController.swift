@@ -50,5 +50,9 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
         vc.region = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(K.cellHight)
+    }
 }
 

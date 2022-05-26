@@ -12,13 +12,12 @@ import SwiftyJSON
 final class DetailViewModel {
     
     private var country: Country = Country()
+    private ( set ) var cellHight = K.cellHight
+    
     private let sectionTitles = ["Flag",
                                  "Currency Units",
                                  "Languages",
                                  "Map"]
-    private let cellHight: [String: Float] = ["flag": 80,
-                                               "text": 40,
-                                               "map": 300]
     
     static let shared = DetailViewModel()
     
@@ -38,7 +37,16 @@ final class DetailViewModel {
         return sectionTitles.count
     }
     
-    func getCellHight(for cell: String) -> Float {
-        return cellHight[cell] ?? 40
+    func setCellHight(when section: CellSections) {
+        switch section {
+        case .flag:
+            cellHight = K.DetailView.flagHight
+        case .curency:
+            cellHight = K.cellHight
+        case .languages:
+            cellHight = K.cellHight
+        case .map:
+            cellHight = K.DetailView.mapHight
+        }
     }
 }

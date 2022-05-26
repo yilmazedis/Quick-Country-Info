@@ -61,14 +61,14 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
         let name = country.name
         let nativeName = country.nativeName
         let flag = country.flag
-        cell.textLabel?.text = flag + " - " + name + " - " + nativeName
+        cell.textLabel?.text = flag + "   " + name + " - " + nativeName
         cell.accessoryType = .disclosureIndicator
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return CGFloat(K.cellHight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

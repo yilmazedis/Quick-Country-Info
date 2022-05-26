@@ -65,6 +65,10 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         DetailViewModel.shared.setCountry(with: country)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(K.cellHight)
+    }
 }
 
 extension SearchCountryViewController: UISearchBarDelegate {
