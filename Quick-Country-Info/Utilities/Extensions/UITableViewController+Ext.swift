@@ -11,7 +11,7 @@ extension UIViewController {
     
     func configureNavigationBar(with title: String) {
         configureNavigationBar(largeTitleColor: .label,
-                               backgoundColor: .systemBackground,
+                               backgoundColor: UIColor(named: "NavBarColor") ?? .systemBlue,
                                tintColor: .label,
                                title: title,
                                preferredLargeTitle: true)
