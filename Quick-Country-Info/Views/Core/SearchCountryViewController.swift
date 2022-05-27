@@ -53,7 +53,14 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
-        cell.textLabel?.text =  SearchCountryViewModel.shared.getCountry(at: indexPath.row).name
+        let country =  SearchCountryViewModel.shared.getCountry(at: indexPath.row)
+        
+        let name = country.name
+        let nativeName = country.nativeName
+        let flag = country.flag
+        
+        cell.textLabel?.text = flag + "    " + name + " - " + nativeName
+        cell.textLabel?.labelSizeChange(into: UIFont.systemFont(ofSize: 40), from: 0, to: 4)
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
         
