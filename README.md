@@ -7,7 +7,6 @@
 
 ### Structure
 - Error & Load handle
-- I added an appropriate Logger, make clear all info and errors.
 - I used MVVM as default design pattern
 - I devided Constants, Extension, Enumeration, protocols as much as possible.
 - I devided groups with related files.
@@ -17,6 +16,6 @@
 
 - Finally, I added a demo to demonstrate my work. ->
 
- Final Demo|
-:-------------------------:|
-![](DemoGifs/Final-Demo.gif)
+ |       Ver-1-Demo         |      Final Demo           |
+:-------------------------:|:-------------------------:|
+![](DemoGifs/Ver-1-Demo.gif) | ![](DemoGifs/Final-Demo.gif)
