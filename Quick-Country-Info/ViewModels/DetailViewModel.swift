@@ -40,13 +40,13 @@ final class DetailViewModel {
     func setCellHight(when section: CellSections) {
         switch section {
         case .flag:
-            cellHight = K.DetailView.flagHight
+            cellHight = K.DetailView.flagCellHight
         case .curency:
             cellHight = K.cellHight
         case .languages:
             cellHight = K.cellHight
         case .map:
-            cellHight = K.DetailView.mapHight
+            cellHight = K.DetailView.mapCellHight
         }
     }
 }

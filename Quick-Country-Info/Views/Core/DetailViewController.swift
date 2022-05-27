@@ -64,6 +64,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
+        cell.selectionStyle = .none
+        
         let country = DetailViewModel.shared.getCountry()
         
         switch indexPath.section {

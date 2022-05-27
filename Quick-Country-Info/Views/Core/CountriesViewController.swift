@@ -60,7 +60,7 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = flag + "    " + name + " - " + nativeName
         cell.textLabel?.labelSizeChange(into: UIFont.systemFont(ofSize: 40), from: 0, to: 4)
         cell.accessoryType = .disclosureIndicator
-        
+        cell.selectionStyle = .none
         return cell
     }
     

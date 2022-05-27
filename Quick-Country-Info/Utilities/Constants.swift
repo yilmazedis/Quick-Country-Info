@@ -14,7 +14,9 @@ struct K {
     static let fetchByName = "name/"
     
     struct DetailView {
-        static let flagHight = 75
+        static let flagHight = 90
+        static let flagCellHight = 70
         static let mapHight = 300
+        static let mapCellHight = 300
     }
 }

@@ -55,6 +55,7 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         
         cell.textLabel?.text =  SearchCountryViewModel.shared.getCountry(at: indexPath.row).name
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         
         return cell
     }

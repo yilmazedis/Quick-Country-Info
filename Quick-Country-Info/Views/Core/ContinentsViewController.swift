@@ -42,6 +42,7 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         return cell
     }
     
