@@ -18,7 +18,6 @@
 		010975712836D4160080CBBB /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975702836D4160080CBBB /* Countries.swift */; };
 		010975732836D9BE0080CBBB /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975722836D9BE0080CBBB /* CountriesViewController.swift */; };
 		010975752836DE950080CBBB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975742836DE950080CBBB /* DetailViewController.swift */; };
-		010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010975802836FC5A0080CBBB /* UIImage+Ext.swift */; };
 		011B1EEF283BECD1009F570F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1EEE283BECD1009F570F /* DetailViewModel.swift */; };
 		011B1EF1283BECE8009F570F /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1EF0283BECE8009F570F /* CountriesViewModel.swift */; };
 		011B1EF3283BED1D009F570F /* ContinentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1EF2283BED1D009F570F /* ContinentsViewModel.swift */; };
@@ -30,6 +29,7 @@
 		011B1F03283EEC41009F570F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F02283EEC41009F570F /* MKMapView+Ext.swift */; };
 		011B1F05283EF6DD009F570F /* UITableViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */; };
 		011B1F0A283FE3B2009F570F /* CellSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F09283FE3B2009F570F /* CellSections.swift */; };
+		019C5B5D28404C490042B27F /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C5B5C28404C490042B27F /* UILabel+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,6 @@
 		010975702836D4160080CBBB /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		010975722836D9BE0080CBBB /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		010975742836DE950080CBBB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		010975802836FC5A0080CBBB /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		011B1EEE283BECD1009F570F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		011B1EF0283BECE8009F570F /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
 		011B1EF2283BED1D009F570F /* ContinentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsViewModel.swift; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		011B1F02283EEC41009F570F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Ext.swift"; sourceTree = "<group>"; };
 		011B1F09283FE3B2009F570F /* CellSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSections.swift; sourceTree = "<group>"; };
+		019C5B5C28404C490042B27F /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +133,9 @@
 		0109757F2836FC300080CBBB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				010975802836FC5A0080CBBB /* UIImage+Ext.swift */,
 				011B1F02283EEC41009F570F /* MKMapView+Ext.swift */,
 				011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */,
+				019C5B5C28404C490042B27F /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,6 +256,7 @@
 				010975752836DE950080CBBB /* DetailViewController.swift in Sources */,
 				010975552836CB620080CBBB /* ContinentsViewController.swift in Sources */,
 				010975512836CB620080CBBB /* AppDelegate.swift in Sources */,
+				019C5B5D28404C490042B27F /* UILabel+Ext.swift in Sources */,
 				011B1EEF283BECD1009F570F /* DetailViewModel.swift in Sources */,
 				010975732836D9BE0080CBBB /* CountriesViewController.swift in Sources */,
 				010975532836CB620080CBBB /* SceneDelegate.swift in Sources */,
@@ -264,7 +265,6 @@
 				011B1EF1283BECE8009F570F /* CountriesViewModel.swift in Sources */,
 				011B1F05283EF6DD009F570F /* UITableViewController+Ext.swift in Sources */,
 				011B1F0A283FE3B2009F570F /* CellSections.swift in Sources */,
-				010975812836FC5A0080CBBB /* UIImage+Ext.swift in Sources */,
 				011B1F03283EEC41009F570F /* MKMapView+Ext.swift in Sources */,
 				011B1EF5283BEF17009F570F /* SearchCountryViewModel.swift in Sources */,
 				011B1EF3283BED1D009F570F /* ContinentsViewModel.swift in Sources */,

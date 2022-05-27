@@ -52,16 +52,13 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
-//        let image = UIImageView()
-//        image.sd_setImage(with: URL(string: "https://flagcdn.com/w80/za.jpg")!,
-//                          placeholderImage: UIImage(systemName: "photo"))
-//
-//        cell.imageView?.image = image.image?.resizeImageWithHeight(newW: 60, newH: 60)
         let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
         let name = country.name
         let nativeName = country.nativeName
         let flag = country.flag
-        cell.textLabel?.text = flag + "   " + name + " - " + nativeName
+        
+        cell.textLabel?.text = flag + "    " + name + " - " + nativeName
+        cell.textLabel?.labelSizeChange(into: UIFont.systemFont(ofSize: 40), from: 0, to: 4)
         cell.accessoryType = .disclosureIndicator
         
         return cell

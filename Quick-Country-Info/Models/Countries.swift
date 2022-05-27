@@ -6,6 +6,7 @@
 //
 
 import SwiftyJSON
+import Foundation
 
 typealias CurrencyTuple = (name: String, symbol: String)
 typealias LocationTuple = (lat: Float, lng: Float)
@@ -15,6 +16,7 @@ struct Country {
     let nativeName: String
     let subregion: String
     let flag: String
+    let flagUrl: String
     let currencies: [CurrencyTuple]
     let languages: [String]
     let location: LocationTuple
@@ -25,6 +27,7 @@ struct Country {
         self.nativeName = ""
         self.subregion = ""
         self.flag = ""
+        self.flagUrl = ""
         self.currencies = [CurrencyTuple(name: "", symbol: "")]
         self.languages = [""]
         self.location = LocationTuple(lat: 0.0, lng: 0.0)
@@ -35,6 +38,7 @@ struct Country {
         self.nativeName = Country.setNativeName(with: data)
         self.subregion = data["subregion"].stringValue
         self.flag = data["flag"].stringValue
+        self.flagUrl = data["flags"]["png"].stringValue
         self.currencies = Country.setCurrency(with: data)
         self.languages = Country.setLanguages(with: data)
         self.location = Country.setlatAndlng(with: data)
