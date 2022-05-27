@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import WebKit
 
 final class DetailViewController: UIViewController {
     
@@ -16,13 +15,9 @@ final class DetailViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
         return table
     }()
-    
-    private var cellHight: CGFloat = 40
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-        // Do any additional setup after loading the view.
                 
         view.addSubview(tableView)
         tableView.delegate = self
@@ -40,7 +35,7 @@ final class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHight
+        return CGFloat(DetailViewModel.shared.cellHight)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,46 +48,59 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
+        case CellSections.flag.rawValue:
             return 1
-        case 1:
+        case CellSections.curency.rawValue:
             return DetailViewModel.shared.getCountry().currencies.count
-        case 2:
+        case CellSections.languages.rawValue:
             return DetailViewModel.shared.getCountry().languages.count
-        default:
+        case CellSections.map.rawValue:
             return 1
+        default:
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
+        cell.selectionStyle = .none
+        
         let country = DetailViewModel.shared.getCountry()
         
         switch indexPath.section {
-        case 0:
-            cellHight = 80
-            cell.textLabel?.text = country.flag
+        case CellSections.flag.rawValue:
+            DetailViewModel.shared.setCellHight(when: .flag)
             
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 100)
-        case 1:
-            cellHight = 40
+            cell.textLabel?.text = country.flag
+            cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(K.DetailView.flagHight))
+            
+        case CellSections.curency.rawValue:
+            DetailViewModel.shared.setCellHight(when: .curency)
             
             let name = country.currencies[indexPath.row].name
             let symbol = country.currencies[indexPath.row].symbol
-            
             cell.textLabel?.text = symbol + " " + name
-        case 2:
-            cellHight = 40
+            
+        case CellSections.languages.rawValue:
+            DetailViewModel.shared.setCellHight(when: .languages)
+            
             cell.textLabel?.text = country.languages[indexPath.row]
-        default:
-            cellHight = 300
-            let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cellHight))
+            
+        case CellSections.map.rawValue:
+            DetailViewModel.shared.setCellHight(when: .map)
+            
+            let mapView = MKMapView(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: Int(cell.frame.size.width),
+                                                  height: K.DetailView.mapHight))
             cell.contentView.addSubview(mapView)
 
             let location = CLLocation(latitude: CLLocationDegrees(country.location.lat),
                                       longitude: CLLocationDegrees(country.location.lng))
             mapView.putDropPin(at: location)
+            
+        default: break
         }
         return cell
     }

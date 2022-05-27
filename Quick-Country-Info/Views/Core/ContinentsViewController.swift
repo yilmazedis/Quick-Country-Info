@@ -17,8 +17,6 @@ final class ContinentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-        // Do any additional setup after loading the view.
         
         view.addSubview(tableView)
         tableView.delegate = self
@@ -44,6 +42,7 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -51,6 +50,10 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = CountriesViewController()
         vc.region = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(K.cellHight)
     }
 }
 

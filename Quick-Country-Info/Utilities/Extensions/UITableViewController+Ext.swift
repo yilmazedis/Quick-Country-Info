@@ -10,9 +10,9 @@ import UIKit
 extension UIViewController {
     
     func configureNavigationBar(with title: String) {
-        configureNavigationBar(largeTitleColor: .white,
-                               backgoundColor: .systemBlue,
-                               tintColor: .white,
+        configureNavigationBar(largeTitleColor: .label,
+                               backgoundColor: UIColor(named: "NavBarColor") ?? .systemBlue,
+                               tintColor: .label,
                                title: title,
                                preferredLargeTitle: true)
     }

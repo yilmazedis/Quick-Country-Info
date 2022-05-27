@@ -19,27 +19,28 @@ final class SearchCountryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-        // Do any additional setup after loading the view.
                 
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         
-        searchBar.searchBarStyle = UISearchBar.Style.default
-        searchBar.placeholder = " Search Country"
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-        searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
-        tableView.tableHeaderView = searchBar
         
+        configureSearchBar()
         configureNavigationBar(with: "Search Country")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+    }
+    
+    private func configureSearchBar() {
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search Country"
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        tableView.tableHeaderView = searchBar
     }
 }
 
@@ -54,6 +55,7 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         
         cell.textLabel?.text =  SearchCountryViewModel.shared.getCountry(at: indexPath.row).name
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -63,6 +65,10 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
         let country = SearchCountryViewModel.shared.getCountry(at: indexPath.row)
         DetailViewModel.shared.setCountry(with: country)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(K.cellHight)
     }
 }
 
