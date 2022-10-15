@@ -7,37 +7,22 @@
 
 import UIKit
 
-final class ContinentsViewController: UIViewController {
-    
-    private let tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
-        return table
-    }()
-
+final class ContinentsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         configureNavigationBar(with: "Continents")
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
     }
 }
 
-extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - Devide tableView functions -
+extension ContinentsViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ContinentsViewModel.shared.getContinentCount()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
         cell.textLabel?.text = ContinentsViewModel.shared.getContinent(at: indexPath.row)
@@ -46,14 +31,13 @@ extension ContinentsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = CountriesViewController()
         vc.region = ContinentsViewModel.shared.getContinent(at: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(K.cellHight)
     }
 }
-

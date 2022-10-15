@@ -13,6 +13,7 @@
 - I added comment as much as possible, rather I prefered well designed function and property names.
 - I try to avoid retain cycle, and cared variables reference count.
 - I try to avoid massive ViewController. So, I devided function with related extensions.
+- I just developed ContinentsViewController with UITableViewController to show how looking. Other controllers developed with UIViewController as usual.
 
 - Finally, I added a demo to demonstrate my work. ->
 
