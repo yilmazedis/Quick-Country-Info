@@ -17,6 +17,6 @@
 
 - Finally, I added a demo to demonstrate my work. ->
 
-        Ver-1-Demo         |      Final Demo           |
+ |       Ver-1-Demo         |      Final Demo           |
 :-------------------------:|:-------------------------:|
-![](DemoGifs/Ver-1-Demo.gif) ![](DemoGifs/Final-Demo.gif)
+![](DemoGifs/Ver-1-Demo.gif) | ![](DemoGifs/Final-Demo.gif)
