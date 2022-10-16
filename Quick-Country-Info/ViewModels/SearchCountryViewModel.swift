@@ -13,6 +13,7 @@ final class SearchCountryViewModel {
     
     private var countries: [Country] = []
     static let shared = SearchCountryViewModel()
+    private var countryNameAvailabilityWorkItem: DispatchWorkItem?
     
     func fetchCountries(with urlStr: String, completion: @escaping () -> Void) {
         
@@ -24,25 +25,30 @@ final class SearchCountryViewModel {
             return
         }
         
-        AF.request(url, method: .get).response { [weak self] payload in
-            
-            guard let self = self else {
-                return
-            }
-            
-            switch payload.result {
-            case .success(let value):
+        let workItem: DispatchWorkItem = DispatchWorkItem {
+            AF.request(url, method: .get).response { [weak self] payload in
                 
-                let json = JSON(value as Any).arrayValue
+                guard let self = self else {
+                    return
+                }
                 
-                self.unload()
-                self.load(with: json)
-                
-                completion()
-            case .failure(let error):
-                print(error)
+                switch payload.result {
+                case .success(let value):
+                    
+                    let json = JSON(value as Any).arrayValue
+                    
+                    self.unload()
+                    self.load(with: json)
+                    
+                    completion()
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
+        
+        countryNameAvailabilityWorkItem = workItem
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(200), execute: workItem)
     }
     
     private func load(with json: [JSON]) {
