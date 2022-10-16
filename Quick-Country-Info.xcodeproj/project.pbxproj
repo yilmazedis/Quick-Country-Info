@@ -29,6 +29,10 @@
 		011B1F03283EEC41009F570F /* MKMapView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F02283EEC41009F570F /* MKMapView+Ext.swift */; };
 		011B1F05283EF6DD009F570F /* UITableViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */; };
 		011B1F0A283FE3B2009F570F /* CellSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B1F09283FE3B2009F570F /* CellSections.swift */; };
+		0196377628FCAA180001174E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196377528FCAA180001174E /* ImageCache.swift */; };
+		0196377828FCAA350001174E /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196377728FCAA350001174E /* ImageDownloader.swift */; };
+		0196377A28FCAA5D0001174E /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196377928FCAA5D0001174E /* UIImage+Ext.swift */; };
+		0196377D28FCAA910001174E /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196377C28FCAA910001174E /* PhotoViewCell.swift */; };
 		019C5B5D28404C490042B27F /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C5B5C28404C490042B27F /* UILabel+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,10 @@
 		011B1F02283EEC41009F570F /* MKMapView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Ext.swift"; sourceTree = "<group>"; };
 		011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Ext.swift"; sourceTree = "<group>"; };
 		011B1F09283FE3B2009F570F /* CellSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSections.swift; sourceTree = "<group>"; };
+		0196377528FCAA180001174E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		0196377728FCAA350001174E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		0196377928FCAA5D0001174E /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		0196377C28FCAA910001174E /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		019C5B5C28404C490042B27F /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +98,8 @@
 		0109754F2836CB620080CBBB /* Quick-Country-Info */ = {
 			isa = PBXGroup;
 			children = (
+				0196377B28FCAA810001174E /* Cells */,
+				0196377428FCAA090001174E /* Services */,
 				010975692836D1AA0080CBBB /* Utilities */,
 				0109756F2836D3A80080CBBB /* Models */,
 				010975682836D1810080CBBB /* Views */,
@@ -136,6 +146,7 @@
 				011B1F02283EEC41009F570F /* MKMapView+Ext.swift */,
 				011B1F04283EF6DD009F570F /* UITableViewController+Ext.swift */,
 				019C5B5C28404C490042B27F /* UILabel+Ext.swift */,
+				0196377928FCAA5D0001174E /* UIImage+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +179,23 @@
 				011B1F09283FE3B2009F570F /* CellSections.swift */,
 			);
 			path = Enumarations;
+			sourceTree = "<group>";
+		};
+		0196377428FCAA090001174E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0196377528FCAA180001174E /* ImageCache.swift */,
+				0196377728FCAA350001174E /* ImageDownloader.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0196377B28FCAA810001174E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0196377C28FCAA910001174E /* PhotoViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,13 +284,17 @@
 				010975752836DE950080CBBB /* DetailViewController.swift in Sources */,
 				010975552836CB620080CBBB /* ContinentsViewController.swift in Sources */,
 				010975512836CB620080CBBB /* AppDelegate.swift in Sources */,
+				0196377A28FCAA5D0001174E /* UIImage+Ext.swift in Sources */,
 				019C5B5D28404C490042B27F /* UILabel+Ext.swift in Sources */,
 				011B1EEF283BECD1009F570F /* DetailViewModel.swift in Sources */,
+				0196377D28FCAA910001174E /* PhotoViewCell.swift in Sources */,
 				010975732836D9BE0080CBBB /* CountriesViewController.swift in Sources */,
+				0196377828FCAA350001174E /* ImageDownloader.swift in Sources */,
 				010975532836CB620080CBBB /* SceneDelegate.swift in Sources */,
 				010975672836CF9C0080CBBB /* TabBarViewController.swift in Sources */,
 				010975652836CD1E0080CBBB /* Constants.swift in Sources */,
 				011B1EF1283BECE8009F570F /* CountriesViewModel.swift in Sources */,
+				0196377628FCAA180001174E /* ImageCache.swift in Sources */,
 				011B1F05283EF6DD009F570F /* UITableViewController+Ext.swift in Sources */,
 				011B1F0A283FE3B2009F570F /* CellSections.swift in Sources */,
 				011B1F03283EEC41009F570F /* MKMapView+Ext.swift in Sources */,

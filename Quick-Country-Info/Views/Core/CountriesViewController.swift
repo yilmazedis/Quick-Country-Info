@@ -12,7 +12,8 @@ final class CountriesViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
+        table.register(PhotoViewCell.self, forCellReuseIdentifier: K.cell)
+        table.separatorStyle = .none
         return table
     }()
     
@@ -50,23 +51,23 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath) as? PhotoViewCell else {
+            return UITableViewCell()
+        }
         
         let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
         let name = country.name
         let nativeName = country.nativeName
         let flag = country.flag
         
-        cell.textLabel?.text = flag + "    " + name + " - " + nativeName
-        cell.textLabel?.labelSizeChange(into: UIFont.systemFont(ofSize: 40), from: 0, to: 4)
-        cell.accessoryType = .disclosureIndicator
-        cell.selectionStyle = .none
+        cell.configure(with: country.flagUrl)
+        
+        
+//        cell.textLabel?.text = flag + "    " + name + " - " + nativeName
+//        cell.textLabel?.labelSizeChange(into: UIFont.systemFont(ofSize: 40), from: 0, to: 4)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(K.cellHight)
-    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
