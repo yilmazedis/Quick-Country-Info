@@ -8,6 +8,9 @@
 import UIKit
 
 final class ContinentsViewController: UITableViewController {
+    
+    private let viewModel = ContinentsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar(with: "Continents")
@@ -19,13 +22,13 @@ final class ContinentsViewController: UITableViewController {
 extension ContinentsViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ContinentsViewModel.shared.getContinentCount()
+        return viewModel.getContinentCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
-        cell.textLabel?.text = ContinentsViewModel.shared.getContinent(at: indexPath.row)
+        cell.textLabel?.text = viewModel.getContinent(at: indexPath.row)
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
         return cell
@@ -33,7 +36,7 @@ extension ContinentsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = CountriesViewController()
-        vc.region = ContinentsViewModel.shared.getContinent(at: indexPath.row)
+        vc.region = viewModel.getContinent(at: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
     }
     

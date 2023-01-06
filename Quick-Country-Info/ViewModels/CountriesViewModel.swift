@@ -12,7 +12,6 @@ import SwiftyJSON
 final class CountriesViewModel {
     
     private var countries: [Country] = []
-    static let shared = CountriesViewModel()
     
     func fetchCountries(with urlStr: String, completion: @escaping () -> Void) {
         

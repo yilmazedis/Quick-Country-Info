@@ -15,9 +15,7 @@ final class ContinentsViewModel {
                                "North America",
                                "South America",
                                "Oceania" ]
-    
-    static let shared = ContinentsViewModel()
-    
+        
     func getContinent(at index: Int) -> String {
         return continents[index]
     }

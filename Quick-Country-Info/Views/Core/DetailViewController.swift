@@ -15,6 +15,8 @@ final class DetailViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: K.cell)
         return table
     }()
+    
+    let viewModel = DetailViewModel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ final class DetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        configureNavigationBar(with: DetailViewModel.shared.getCountry().name)
+        configureNavigationBar(with: viewModel.getCountry().name)
     }
 
     override func viewDidLayoutSubviews() {
@@ -35,15 +37,15 @@ final class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(DetailViewModel.shared.cellHight)
+        return CGFloat(viewModel.cellHight)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return DetailViewModel.shared.getSectionCount()
+        return viewModel.getSectionCount()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return DetailViewModel.shared.getSection(at: section)
+        return viewModel.getSection(at: section)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,9 +53,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case CellSections.flag.rawValue:
             return 1
         case CellSections.curency.rawValue:
-            return DetailViewModel.shared.getCountry().currencies.count
+            return viewModel.getCountry().currencies.count
         case CellSections.languages.rawValue:
-            return DetailViewModel.shared.getCountry().languages.count
+            return viewModel.getCountry().languages.count
         case CellSections.map.rawValue:
             return 1
         default:
@@ -66,29 +68,29 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-        let country = DetailViewModel.shared.getCountry()
+        let country = viewModel.getCountry()
         
         switch indexPath.section {
         case CellSections.flag.rawValue:
-            DetailViewModel.shared.setCellHight(when: .flag)
+            viewModel.setCellHight(when: .flag)
             
             cell.textLabel?.text = country.flag
             cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(K.DetailView.flagHight))
             
         case CellSections.curency.rawValue:
-            DetailViewModel.shared.setCellHight(when: .curency)
+            viewModel.setCellHight(when: .curency)
             
             let name = country.currencies[indexPath.row].name
             let symbol = country.currencies[indexPath.row].symbol
             cell.textLabel?.text = symbol + " " + name
             
         case CellSections.languages.rawValue:
-            DetailViewModel.shared.setCellHight(when: .languages)
+            viewModel.setCellHight(when: .languages)
             
             cell.textLabel?.text = country.languages[indexPath.row]
             
         case CellSections.map.rawValue:
-            DetailViewModel.shared.setCellHight(when: .map)
+            viewModel.setCellHight(when: .map)
             
             let mapView = MKMapView(frame: CGRect(x: 0,
                                                   y: 0,

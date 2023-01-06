@@ -18,9 +18,7 @@ final class DetailViewModel {
                                  "Currency Units",
                                  "Languages",
                                  "Map"]
-    
-    static let shared = DetailViewModel()
-    
+        
     func setCountry(with country: Country) {
         self.country = country
     }

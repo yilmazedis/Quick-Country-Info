@@ -18,6 +18,7 @@ final class CountriesViewController: UIViewController {
     }()
     
     var region: String?
+    private var viewModel = CountriesViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ final class CountriesViewController: UIViewController {
     }
     
     private func loadTableViewCells() {
-        CountriesViewModel.shared.fetchCountries(with: K.baseUrl + K.fetchByRegion + region!) { [weak self] in
+        viewModel.fetchCountries(with: K.baseUrl + K.fetchByRegion + region!) { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -47,7 +48,7 @@ final class CountriesViewController: UIViewController {
 extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CountriesViewModel.shared.getCountryCount()
+        return viewModel.getCountryCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +56,7 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
+        let country = viewModel.getCountry(at: indexPath.row)
         let name = country.name
         let nativeName = country.nativeName
         let flag = country.flag
@@ -71,8 +72,8 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        let country = CountriesViewModel.shared.getCountry(at: indexPath.row)
-        DetailViewModel.shared.setCountry(with: country)
+        let country = viewModel.getCountry(at: indexPath.row)
+        vc.viewModel.setCountry(with: country)
         
         navigationController?.pushViewController(vc, animated: true)
     }

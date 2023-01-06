@@ -12,7 +12,6 @@ import SwiftyJSON
 final class SearchCountryViewModel {
     
     private var countries: [Country] = []
-    static let shared = SearchCountryViewModel()
     private var countryNameAvailabilityWorkItem: DispatchWorkItem?
     
     func fetchCountries(with urlStr: String, completion: @escaping () -> Void) {

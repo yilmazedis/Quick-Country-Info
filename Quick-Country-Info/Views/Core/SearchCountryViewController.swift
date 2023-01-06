@@ -16,6 +16,7 @@ final class SearchCountryViewController: UIViewController {
     }()
     
     lazy var searchBar:UISearchBar = UISearchBar()
+    private let viewModel = SearchCountryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +48,13 @@ final class SearchCountryViewController: UIViewController {
 extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SearchCountryViewModel.shared.getCountryCount()
+        return viewModel.getCountryCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
-        let country =  SearchCountryViewModel.shared.getCountry(at: indexPath.row)
+        let country = viewModel.getCountry(at: indexPath.row)
         
         let name = country.name
         let nativeName = country.nativeName
@@ -69,8 +70,8 @@ extension SearchCountryViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        let country = SearchCountryViewModel.shared.getCountry(at: indexPath.row)
-        DetailViewModel.shared.setCountry(with: country)
+        let country = viewModel.getCountry(at: indexPath.row)
+        vc.viewModel.setCountry(with: country)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -83,7 +84,7 @@ extension SearchCountryViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String)
     {
         if textSearched.isEmpty {
-            SearchCountryViewModel.shared.unload()
+            viewModel.unload()
             tableView.reloadData()
             return
         }
@@ -93,7 +94,7 @@ extension SearchCountryViewController: UISearchBarDelegate {
     }
     
     private func loadTableViewCells(with what: String) {
-        SearchCountryViewModel.shared.fetchCountries(with: K.baseUrl + K.fetchByName + what) { [weak self] in
+        viewModel.fetchCountries(with: K.baseUrl + K.fetchByName + what) { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
